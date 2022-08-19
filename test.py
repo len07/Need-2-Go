@@ -1,3 +1,3 @@
-print("hello world")
+# Tests can go here
 
-print("Hello Amy is Stupid")
+print("hello world")
