@@ -1,0 +1,22 @@
+<h2>{{ bathroom.name }}</h2>
+<h5>{{ bathroom.review_set.count }} reviews ( average rating)</h5>
+
+<!-- we need to fix this bathroom.average_rating | floatformat that would go above for average-->
+
+<h3>Recent reviews</h3>
+
+{% if bathroom.review_set.all %}
+<div>
+    {% for review in bathroom.review_set.all %}
+    <div>
+        <em>{{ review.comment }}</em>
+        <h6>Rated {{ review.rating }} of 5 by {{ review.user_name }}</h6>
+        <h5><a href="{% url 'reviews:review_detail' review.id %}">
+        Read more
+        </a></h5>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No reviews for this bathroom yet</p>
+{% endif %}

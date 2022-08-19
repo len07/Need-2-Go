@@ -1,0 +1,18 @@
+<h2>bathroom list</h2>
+
+{% if bathroom_list %}
+<div>
+    {% for bathroom in bathroom_list %}
+    <div>
+        <h4><a href="{% url 'reviews:bathroom_detail' bathroom.id %}">
+        {{ bathroom.name }}
+        </a></h4>
+        <h5>{{ bathroom.review_set.count }} reviews</h5>
+        <h5> average rating</h5>
+        <!-- we need to fix this bathroom.average_rating | floatformat that would go above for average-->
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+    <p>No bathrooms are available.</p>
+{% endif %}
