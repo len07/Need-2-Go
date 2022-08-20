@@ -18,6 +18,7 @@ from django.urls import path, re_path, include
 
 
 urlpatterns = [
-    re_path(r'^reviews/', include(('reviews.urls', 'reviews'), namespace="reviews")),
-    path('admin/', admin.site.urls),
+    re_path(r'', include(('reviews.urls', 'reviews'), namespace="reviews")),
+    path('admin/', admin.site.urls), 
+    re_path(r'^api/', include('rest_framework.urls', namespace='rest_framework')), 
 ]

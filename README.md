@@ -20,3 +20,9 @@ python manage.py runserver 0.0.0.0:8000
 ### exit the python virtual environment
 
 deactivate
+
+pip install djangorestframework
+
+## migration
+
+python manage.py migrate
