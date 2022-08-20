@@ -13,6 +13,20 @@ from django.urls import reverse
 import datetime
 
 
+from rest_framework import viewsets
+
+from .serializers import BathroomSerializer, ReviewSerializer
+
+from .models import Bathroom
+
+class BathroomViewSet(viewsets.ModelViewSet):
+    queryset = Bathroom.objects.all().order_by('id')
+    serializer_class = BathroomSerializer
+
+class ReviewViewSet(viewsets.ModelViewSet):
+    queryset = Review.objects.all().order_by('id')
+    serializer_class = ReviewSerializer
+
 def review_list(request):
     latest_review_list = Review.objects.order_by('-pub_date')[:9]
     context = {'latest_review_list':latest_review_list}
